@@ -1,9 +1,7 @@
-FROM ubuntu:18.04
+FROM ubuntu:14.04
 RUN apt-get update
-RUN apt-get install git maven tomcat9 default-jdk -y
-RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
-WORKDIR boxfuse-sample-java-war-hello/
-RUN mvn package
-RUN cp target/hello-1.0.war /var/lib/tomcat9/webapps/
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
+ADD requirments.txt /opt/webapp/
+WORKDIR /opt/webapp/
+RUN pip install -qr requirments.txt
+EXPOSE 5000
