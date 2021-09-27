@@ -1,4 +1,4 @@
-Flask==0.9
+Flask
 Jinja2
 Werkzeug
 distribute
