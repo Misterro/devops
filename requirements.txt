@@ -1,4 +1,4 @@
-Flask
+Flask:latest
 Jinja2
 Werkzeug
 distribute
