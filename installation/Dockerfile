@@ -5,4 +5,3 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR boxfuse-sample-java-war-hello/
 RUN pwd
 RUN mvn package
-VOLUME boxfuse-sample-java-war-hello/target/
