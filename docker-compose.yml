@@ -4,7 +4,7 @@ services:
     build: installation
     volumes:
       - type: volume
-        source: war
+        source: /war
         target: /target/boxfuse-sample-java-war-hello/
 
   run:
