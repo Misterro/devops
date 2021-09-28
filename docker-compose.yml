@@ -1,0 +1,20 @@
+version: "3"
+services:
+  installition:
+    build: installation
+    volumes:
+      - type: volume
+        source: war
+        target: target/boxfuse-sample-java-war-hello/
+
+  run:
+    image: tomcat:9
+    volumes:
+      - type: volume
+        source: war
+        target: /usr/local/tomcat/webapps/
+    depends_on:
+      - installition
+
+volumes:
+  war:
