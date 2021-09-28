@@ -15,3 +15,6 @@ services:
         target: /usr/local/tomcat/webapps/
     depends_on:
       - installition
+
+volumes:
+  war:
