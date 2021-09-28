@@ -5,7 +5,7 @@ services:
     volumes:
       - type: volume
         source: war
-        target: target/boxfuse-sample-java-war-hello/
+        target: /target/boxfuse-sample-java-war-hello/
 
   run:
     image: tomcat:9
