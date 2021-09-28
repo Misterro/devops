@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python-all python-pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q python3 python-pip
 RUN pip -V
 ADD requirements.txt /opt/webapp/
 ADD app.py /opt/webapp/
