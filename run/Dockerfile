@@ -5,5 +5,6 @@ RUN mkdir /usr/local/tomcat
 RUN curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.53/bin/apache-tomcat-9.0.53.tar.gz
 RUN tar xvzf apache-tomcat-9.0.53.tar.gz --strip-components 1 --directory /usr/local/tomcat
 RUN /usr/local/tomcat/bin/catalina.sh version
+RUN rm apache-tomcat-9.0.53.tar.gz
 EXPOSE 8080
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
