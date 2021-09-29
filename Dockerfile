@@ -1,6 +1,5 @@
-FROM tomcat:9
-RUN apt-get update
-RUN apt-get install git maven -y
+FROM nirmata/tomcat9-alpine-jre12-openjdk
+RUN apk add --no-cache git maven
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 RUN pwd
 WORKDIR boxfuse-sample-java-war-hello/
