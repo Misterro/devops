@@ -9,6 +9,7 @@ RUN mkdir /war && ls -la /boxfuse-sample-java-war-hello/target/
 RUN cp /boxfuse-sample-java-war-hello/target/hello-1.0.war /war
 WORKDIR /war
 RUN git init
+RUN git git config --global user.email "you@example.com" && git config --global user.name "Your Name"
 RUN git remote add origin https://github.com/Misterro/s.git
 RUN git add .
 RUN git commit -m "war"
