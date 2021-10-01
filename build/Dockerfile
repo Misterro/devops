@@ -12,5 +12,4 @@ RUN git init
 RUN git config --global user.email "you@example.com" && git config --global user.name "Your Name"
 RUN git remote add origin https://github.com/Misterro/s.git
 RUN git add .
-RUN git commit -m "war"
-RUN git push -u origin main
+RUN git commit -m "war" && git push -u origin main
