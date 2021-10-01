@@ -1,37 +1,40 @@
 ---
-- name: install nginx
-  hosts: web
+- name: build
+  hosts: buld
   become: yes
 
   tasks:
 
-  - name: Ensure nginx package is present
+  - name: Ensure docker package is present
     apt:
-      name: nginx
+      name: docker.io
       state: present
 
-  - name: Ensure index.html is present
+  - name: Ensure Dockerfile is present
     copy:
-      src: index.html
-      dest: /var/www/html
+      src: /build/Dockerfile
+      dest: /tmp
 
-  - name: Ensure nginx service is started
-    service:
-      name: nginx
-      state: started
+  - name: Ensure Dockerfile is build
+    command:
+      name: docker build . /tmp
 
-- name: install db
-  hosts: db
+- name: run
+  hosts: run
   become: yes
 
   tasks:
 
-    - name: Ensure postresql package is present
+    - name: Ensure docker package is present
       apt:
-        name: postgresql
+        name: docker.io
         state: present
 
-    - name: Ensure postg is started
-      service:
-        name: postgresql
-        state: started
+    - name: Ensure Dockerfile is started
+      copy:
+        name: /build/Dockerfile
+        state: /tmp
+
+    - name: Ensure Dockerfile is run
+      command:
+        name: docker build . /tmp
