@@ -32,7 +32,7 @@
 
     - name: Ensure Dockerfile is started
       copy:
-        name: /build/Dockerfile
+        name: /run/Dockerfile
         state: /tmp
 
     - name: Ensure Dockerfile is run
