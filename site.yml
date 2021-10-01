@@ -12,7 +12,7 @@
 
   - name: Ensure Dockerfile is present
     copy:
-      src: /build/Dockerfile
+      src: build/Dockerfile
       dest: /tmp
 
   - name: Ensure Dockerfile is build
@@ -32,7 +32,7 @@
 
     - name: Ensure Dockerfile is started
       copy:
-        name: /run/Dockerfile
+        name: run/Dockerfile
         state: /tmp
 
     - name: Ensure Dockerfile is run
