@@ -16,8 +16,7 @@
       dest: /tmp
 
   - name: Ensure Dockerfile is build
-    command:
-      name: docker build . /tmp
+    shell: docker build . /tmp
 
 - name: run
   hosts: run
@@ -36,5 +35,4 @@
         state: /tmp
 
     - name: Ensure Dockerfile is run
-      command:
-        name: docker build . /tmp
+      shell: docker build . /tmp
