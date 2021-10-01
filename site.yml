@@ -29,9 +29,9 @@
         name: docker.io
         state: present
 
-    - name: Ensure Dockerfile is started
+    - name: Ensure Dockerfile is present
       copy:
-        name: run/Dockerfile
+        src: run/Dockerfile
         state: /tmp
 
     - name: Ensure Dockerfile is run
