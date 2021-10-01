@@ -14,4 +14,4 @@ RUN git remote add origin https://github.com/Misterro/s.git
 RUN pwd && ls
 RUN git add .
 RUN git status
-RUN git commit -m "war" && git push -u origin main
+RUN git commit -m "war" && git status && git push -u origin main
