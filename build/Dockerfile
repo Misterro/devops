@@ -6,7 +6,7 @@ WORKDIR boxfuse-sample-java-war-hello/
 RUN pwd
 RUN mvn package
 RUN mkdir /war && ls -la /boxfuse-sample-java-war-hello/target/
-RUN cp boxfuse-sample-java-war-hello/target/hello-1.0.war /war
+RUN cp /boxfuse-sample-java-war-hello/target/hello-1.0.war /war
 WORKDIR /war
 RUN git remote add origin https://github.com/Misterro/s.git
 RUN git branch -M main
