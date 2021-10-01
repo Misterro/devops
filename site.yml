@@ -1,6 +1,6 @@
 ---
 - name: build
-  hosts: buld
+  hosts: build
   become: yes
 
   tasks:
