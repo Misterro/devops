@@ -37,4 +37,4 @@
     - name: Ensure Dockerfile is run
       shell: docker build /tmp
 
-  docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e SSH_KEY="</root/.ssh/id_rsa>" -e FILES_TO_COMMIT="." war:latest
+docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e SSH_KEY="</root/.ssh/id_rsa>" -e FILES_TO_COMMIT="." war:latest
