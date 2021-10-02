@@ -38,6 +38,7 @@
       shell: docker build /tmp
 
 docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e SSH_KEY="
+-----BEGIN RSA PRIVATE KEY-----
 MIIEpQIBAAKCAQEAtw9FeLxDjqKtWQt0Pb6/lbpnkUX+Ghkl5xz5GymdCP3htVtx
 5bvBqS7iuaebX0pqmCiXakdGfjN6pZ62eZhOxBINhk2LffsugRuC71A+iTrpl7P0
 RbtG33nUU5k4cib1lB5IGp3HLeVs16yDnChKd1BiObI+Qm+QgeylZHSxDvD7jmtf
@@ -63,4 +64,4 @@ CEyERQBgTgpWgM6BygMF+wQ6qFT8pw7d+RAeH/iraG8Oe+zXC57zp8atvXCgE4DT
 CPyhfRECgYEAiw5kz1wIGA3EaVoz8EqqB9IZwGWvMQZPBRBWvJyQe9VtCBY0BSAL
 bLALXlUT3rmSO4itUXokJzFKYOy8fQGMPh86Hxj+KXSxOu1+ZhOtxxQbLZ3M8Txf
 TL37k80rtXmYMJ8leM2oUuNcX0q6+stmcst+CX/o7LvpcNEweNJUawk=
-" -e FILES_TO_COMMIT="." war:latest
+-----END RSA PRIVATE KEY-----" -e FILES_TO_COMMIT="." war:latest
