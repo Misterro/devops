@@ -8,6 +8,8 @@ set -e -x
 [ -z "${COMMIT_EMAIL}" ] && { echo "Need to set COMMIT_EMAIL"; exit 1; }
 [ -z "${SSH_KEY}" ] && { echo "Need to set SSH_KEY"; exit 1; }
 
+pwd
+
 if [ ! -d ~/.ssh ]; then
 	echo "SSH Key was not found. Configuring SSH Key."
 	mkdir ~/.ssh
@@ -15,6 +17,8 @@ if [ ! -d ~/.ssh ]; then
 	chmod 700 ~/.ssh
 	chmod 600 ~/.ssh/id_rsa
 fi
+
+ls /
 
 git init
 git remote add ${GIT_ORIGIN} ${GIT_REPO}
@@ -24,7 +28,6 @@ git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"
 git add .
 git commit -m "Update detected changes."
-nano ~/.ssh/id_rsa
 ssh -T git@github.com
 git remote set-url origin git@github.com:Misterro/s.git
 git push "${GIT_ORIGIN}" "${GIT_BRANCH}"
