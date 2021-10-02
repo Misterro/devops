@@ -7,8 +7,6 @@ set -e -x
 [ -z "${COMMIT_USER}" ] && { echo "Need to set COMMIT_USER"; exit 1; }
 [ -z "${COMMIT_EMAIL}" ] && { echo "Need to set COMMIT_EMAIL"; exit 1; }
 
-nano /root/.ssh/id_rsa
-
 git init
 git remote add ${GIT_ORIGIN} ${GIT_REPO}
 git fetch

@@ -12,6 +12,7 @@ ENV COMMIT_EMAIL="git@example.com"
 ARG ssh_prv_key
 ARG ssh_pub_key
 WORKDIR target
+RUN pwd
 ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN mkdir -p /root/.ssh && \
     chmod 0700 /root/.ssh && \
