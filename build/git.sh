@@ -27,5 +27,6 @@ git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"
 git add .
 git commit -m "Update detected changes."
+ssh -T git@github.com:Misterro/s.git
 git remote set-url origin git@github.com:Misterro/s.git
 git push "${GIT_ORIGIN}" "${GIT_BRANCH}"
