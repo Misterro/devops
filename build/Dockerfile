@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update
-RUN apt-get install git maven -y
+RUN apt-get install git maven openssh-server -y
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR boxfuse-sample-java-war-hello/
 RUN mvn package
@@ -10,11 +10,16 @@ ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
 WORKDIR target
-RUN pwd && ls
-RUN ls /
 ADD git.sh /boxfuse-sample-java-war-hello/target
-RUN ls /home
-ADD /root/.ssh/id_rsa /root/.ssh/
+RUN mkdir -p /root/.ssh && \
+    chmod 0700 /root/.ssh && \
+    ssh-keyscan github.com > /root/.ssh/known_hosts
+
+# Add the keys and set permissions
+RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
+    echo "$ssh_pub_key" > /root/.ssh/id_rsa.pub && \
+    chmod 600 /root/.ssh/id_rsa && \
+    chmod 600 /root/.ssh/id_rsa.pub
 RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
 
 CMD ["/boxfuse-sample-java-war-hello/target/git.sh"]
