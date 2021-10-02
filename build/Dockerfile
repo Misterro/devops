@@ -37,4 +37,5 @@ RUN git add hello-1.0.war
 RUN git commit -m "push war"
 #RUN ssh -T git@github.com
 RUN git remote set-url origin https://github.com/Misterro/s.git
+RUN git status
 RUN git push -u origin main
