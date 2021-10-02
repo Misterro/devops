@@ -6,7 +6,6 @@ set -e -x
 [ -z "${GIT_ORIGIN}" ] && { echo "Need to set GIT_ORIGIN"; exit 1; }
 [ -z "${COMMIT_USER}" ] && { echo "Need to set COMMIT_USER"; exit 1; }
 [ -z "${COMMIT_EMAIL}" ] && { echo "Need to set COMMIT_EMAIL"; exit 1; }
-[ -z "${SSH_KEY}" ] && { echo "Need to set SSH_KEY"; exit 1; }
 
 nano /root/.ssh/id_rsa
 

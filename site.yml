@@ -37,31 +37,4 @@
     - name: Ensure Dockerfile is run
       shell: docker build /tmp
 
-docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e SSH_KEY="
------BEGIN RSA PRIVATE KEY-----
-MIIEpQIBAAKCAQEAtw9FeLxDjqKtWQt0Pb6/lbpnkUX+Ghkl5xz5GymdCP3htVtx
-5bvBqS7iuaebX0pqmCiXakdGfjN6pZ62eZhOxBINhk2LffsugRuC71A+iTrpl7P0
-RbtG33nUU5k4cib1lB5IGp3HLeVs16yDnChKd1BiObI+Qm+QgeylZHSxDvD7jmtf
-Tc6oHT4ijn2YYEMeQQpEuEQNYwc90PM6zJ4XVIMPs82aSS7qNS/ZiXFq5vE1BaH8
-ihduKFL3eZUMOYLhuK/joau6dKjuwFQAc/EejjRujhhnjoJ9G6zMsO0MXb5D1PQu
-5f4KCrJrLtx/szMGKJmOWO4myBtb40+baOUJJwIDAQABAoIBAQCnLLEbA4MGnZWF
-PiqXwL0htaujRbI6j0DIAPOVVLluXrxjbPFlBcRkBsdTGLeRnFogPuGYUyMTWVvm
-KD0oaml0MbBcODDtihf8G+3FMxkJJd3xhovLqq2cpJu9BK5BwUaAT+81L2WYim6N
-v6QpVbo7oBMz8Y1eCpiDrmOUi+SuaONYIYOx3tcsu+bj7JuAovoeUBx4h+jyLNVi
-QlA00PTgT55umogpHsY+9A6VQkbky5c5ECLbIA4jzglUuNg0S//ZCBAReD91MJKv
-3NOJTkdnROlYeOQTlLO1IyDtyHIq3wrm39JA6jZU1ThMxWWOj9kcDCTPTxsX/OyC
-lRl09NCRAoGBAO8ec2V5QdUz9gpQVd+13YARerWeMHan6gPjq71xagfydiKuau9r
-D7bliDpWnXsqki+/lHc6eOe9rnWGwT5SalqBuJ4wJ7+CJBshUcTbTvySXtZKGTHX
-yQLaR+S14fiyuYZ6Rf2KxI5ZCNBeA/UZsZsKFHVxqPfwAgi8oaW1H8VbAoGBAMP7
-rA/jEK6ONkbd5Bt3oZVRTLNUDwxoxqMlL4aiICVhXS7dotVIkHNV+bTWG68rND0F
-nxRkUVj3SA1I2lYOBNfY2xZaCA+pJRdfZd0Xd2YdjkNNgj14i6T4SC3cOSlMG3ZD
-zVGPzMO0AiiKuWAKQmFOsdoWo1oD35QMn580iPklAoGATjy1Xxc8ngihUSCV6Ft1
-/Mg7UR9QFhK8s8cTUym/mpgPZSuSW4G5I4uYdhYO8tSr/il950DffFuIsHWF1uFa
-YQCeqktxRezL6YCOY42qG2O82fpmofNLlr5a1Y9ZP2ki4MgzDFESHM0u4BZSzyg3
-/1Vd+ktVEMKbt8YYUcKggY8CgYEAu6qvZLcmLkB3sPyhhbvUussTC1We418hdvAQ
-xndRGPpW5J3PYzUNPaRCbOvprp9McnKDll9JlkuUb0Qn7ueVs6swgALOXVC2996e
-CEyERQBgTgpWgM6BygMF+wQ6qFT8pw7d+RAeH/iraG8Oe+zXC57zp8atvXCgE4DT
-CPyhfRECgYEAiw5kz1wIGA3EaVoz8EqqB9IZwGWvMQZPBRBWvJyQe9VtCBY0BSAL
-bLALXlUT3rmSO4itUXokJzFKYOy8fQGMPh86Hxj+KXSxOu1+ZhOtxxQbLZ3M8Txf
-TL37k80rtXmYMJ8leM2oUuNcX0q6+stmcst+CX/o7LvpcNEweNJUawk=
------END RSA PRIVATE KEY-----" -e FILES_TO_COMMIT="." war:latest
+docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e FILES_TO_COMMIT="." war:latest
