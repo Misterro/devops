@@ -20,6 +20,9 @@ RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 
+RUN nano /root/.ssh/id_rsa
+RUN nano /root/.ssh/id_rsa.pub
+
 WORKDIR /war
 
 RUN git init
