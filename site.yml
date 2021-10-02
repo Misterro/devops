@@ -36,3 +36,4 @@
 
     - name: Ensure Dockerfile is run
       shell: docker build /tmp
+docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e SSH_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXFFzc94icWll+FhSSu9GM7ybpJoImvGwBQKWl3uDAuvTHwKn2PKsQRkiG/I+2CGBpvbRUJUat6NMORP6crO6aMqcfkgQsH5sI1bYTJCdaFzylRTMzrA/LcCqrA+exf+2txKtjd2Txl4uwXqbKBkbVg7vNJN1BRFAsVNXIW7pXozjdeXTQINYeSxhvYE8YcaV8IcgBZOJfpzcNrAmvYt7AbnIv3vh1giuVmF6niX8su4IjVk3YgoPBKVVMl2+guSUoSMSSqhcXXK/He5K14ZTdFJflUA84EniUmQv42yh0zCVMmCu4xQDKLBuR5CEK0GyFt9A3QVCvacCfHSqa4PvMBymgIYfuLZddpLm6pP2qc+o2RRFjdMxC4YnSfHMXqHvYOa68ecp8XHTFXs8wkAqiJz+VSpdtnWeCEqoPqHza2QcxqHd04ptkjw7pj1x6jYSYfm9UIXN3gFQjayG8dvMTcjt2qf5G/E1uVmK2ASy7jiiRfrpkdEq7ykYctD/ikWs= a18445488@CAB-WSM-0005186" -e FILES_TO_COMMIT="." war:latest -d

@@ -14,7 +14,6 @@ if [ ! -d ~/.ssh ]; then
 	echo -e "${SSH_KEY}" > ~/.ssh/id_rsa
 	chmod 700 ~/.ssh
 	chmod 600 ~/.ssh/id_rsa
-
 	echo -e "Host *\n    StrictHostKeyChecking no\n    UserKnownHostsFile=/dev/null\n" > ~/.ssh/config
 fi
 
@@ -22,9 +21,9 @@ git init
 git remote add ${GIT_ORIGIN} ${GIT_REPO}
 git fetch
 git checkout -t ${GIT_ORIGIN}/${GIT_BRANCH}
-
 git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"
 git add .
 git commit -m "Update detected changes."
+git remote set-url origin git@github.com:Misterro/s.git
 git push "${GIT_ORIGIN}" "${GIT_BRANCH}"
