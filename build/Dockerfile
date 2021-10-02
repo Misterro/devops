@@ -16,4 +16,4 @@ RUN pwd && ls
 ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN ls
 
-ENTRYPOINT ["git.sh"]
+ENTRYPOINT ["/boxfuse-sample-java-war-hello/target/git.sh"]
