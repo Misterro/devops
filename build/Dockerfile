@@ -9,6 +9,8 @@ ENV GIT_BRANCH=""
 ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
+ARG ssh_prv_key
+ARG ssh_pub_key
 RUN mkdir /war && cp target/hello-1.0.war /war
 RUN mkdir -p /root/.ssh && \
     chmod 0700 /root/.ssh && \
@@ -33,6 +35,6 @@ RUN git config user.name "docker"
 RUN git config user.email "malyshev.s.a@ya.ru"
 RUN git add hello-1.0.war
 RUN git commit -m "push war"
-#RUN ssh -T git@github.com
+RUN ssh -T git@github.com
 RUN git remote set-url origin git@github.com:Misterro/s.git
 RUN git push origin main
