@@ -6,10 +6,7 @@ set -e -x
 [ -z "${GIT_ORIGIN}" ] && { echo "Need to set GIT_ORIGIN"; exit 1; }
 [ -z "${COMMIT_USER}" ] && { echo "Need to set COMMIT_USER"; exit 1; }
 [ -z "${COMMIT_EMAIL}" ] && { echo "Need to set COMMIT_EMAIL"; exit 1; }
-[ -z "${WORKING_DIR}" ] && { echo "Need to set WORKING_DIR"; exit 1; }
 [ -z "${SSH_KEY}" ] && { echo "Need to set SSH_KEY"; exit 1; }
-
-cd "${WORKING_DIR}"
 
 if [ ! -d ~/.ssh ]; then
 	echo "SSH Key was not found. Configuring SSH Key."
@@ -21,13 +18,10 @@ if [ ! -d ~/.ssh ]; then
 	echo -e "Host *\n    StrictHostKeyChecking no\n    UserKnownHostsFile=/dev/null\n" > ~/.ssh/config
 fi
 
-if [ ! -d "${WORKING_DIR}/.git" ]; then
-	echo "Git repository not found. Initializing repository."
-	git init
-	git remote add ${GIT_ORIGIN} ${GIT_REPO}
-	git fetch
-	git checkout -t ${GIT_ORIGIN}/${GIT_BRANCH}
-fi
+git init
+git remote add ${GIT_ORIGIN} ${GIT_REPO}
+git fetch
+git checkout -t ${GIT_ORIGIN}/${GIT_BRANCH}
 
 git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"

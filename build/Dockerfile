@@ -9,7 +9,6 @@ ENV GIT_BRANCH=""
 ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
-ENV WORKING_DIR=""
 ENV SSH_KEY=""
 WORKDIR target
 RUN pwd && ls
