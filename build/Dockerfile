@@ -3,7 +3,6 @@ RUN apt-get update
 RUN apt-get install git maven -y
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR boxfuse-sample-java-war-hello/
-RUN pwd
 RUN mvn package
 ENV GIT_REPO=""
 ENV GIT_BRANCH=""
@@ -12,7 +11,7 @@ ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
 ENV WORKING_DIR=""
 ENV SSH_KEY=""
-ADD git.sh /war
-WORKDIR /war
+WORKDIR boxfuse-sample-java-war-hello/target
+ADD git.sh /boxfuse-sample-java-war-hello/target
 
 ENTRYPOINT ["git.sh"]
