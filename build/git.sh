@@ -8,7 +8,7 @@ set -e -x
 [ -z "${COMMIT_EMAIL}" ] && { echo "Need to set COMMIT_EMAIL"; exit 1; }
 [ -z "${SSH_KEY}" ] && { echo "Need to set SSH_KEY"; exit 1; }
 
-printf pwd
+echo $pwd
 
 if [ ! -d ~/.ssh ]; then
 	echo "SSH Key was not found. Configuring SSH Key."
