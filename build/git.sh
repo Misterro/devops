@@ -14,7 +14,6 @@ if [ ! -d ~/.ssh ]; then
 	echo -e "${SSH_KEY}" > ~/.ssh/id_rsa
 	chmod 700 ~/.ssh
 	chmod 600 ~/.ssh/id_rsa
-	echo -e "Host *\n    StrictHostKeyChecking no\n    UserKnownHostsFile=/dev/null\n" > ~/.ssh/config
 fi
 
 git init
