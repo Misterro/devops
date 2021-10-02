@@ -13,5 +13,6 @@ ENV WORKING_DIR=""
 ENV SSH_KEY=""
 WORKDIR boxfuse-sample-java-war-hello/target
 ADD git.sh /boxfuse-sample-java-war-hello/target
+RUN ls
 
 ENTRYPOINT ["git.sh"]
