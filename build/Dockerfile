@@ -11,8 +11,8 @@ ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
 WORKDIR target
 RUN pwd && ls
-ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN ls /
+ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN ls /home
 ADD /root/.ssh/id_rsa /root/.ssh/
 RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
