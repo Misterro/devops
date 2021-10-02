@@ -10,13 +10,17 @@ ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
 RUN mkdir /war && cp target/hello-1.0.war /war
-RUN mkdir -p /root/.ssh
+RUN mkdir -p /root/.ssh && \
+    chmod 0700 /root/.ssh && \
+    ssh-keyscan github.com > /root/.ssh/known_hosts
 
 # Add the keys and set permissions
 RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     echo "$ssh_pub_key" > /root/.ssh/id_rsa.pub && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
+
+RUN echo "$ssh_prv_key" && echo "$ssh_pub_key"
 
 RUN ls /root/.ssh
 
