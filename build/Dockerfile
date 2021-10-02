@@ -9,6 +9,7 @@ ENV GIT_BRANCH=""
 ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
+RUN mkdir /war && cp boxfuse-sample-java-war-hello/target/hello-1.0.war /war
 RUN mkdir -p /root/.ssh && \
     chmod 0700 /root/.ssh && \
     ssh-keyscan github.com > /root/.ssh/known_hosts
@@ -19,8 +20,11 @@ RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 
-RUN git remote add origin https://github.com/Misterro/s.git
+WORKDIR /war
+
+RUN git init
 RUN git status
+RUN git remote add origin https://github.com/Misterro/s.git
 RUN git config user.name "docker"
 RUN git config user.email "malyshev.s.a@ya.ru"
 RUN git add hello-1.0.war
