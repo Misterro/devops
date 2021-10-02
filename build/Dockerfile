@@ -12,7 +12,7 @@ ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
 ENV WORKING_DIR=""
 ENV SSH_KEY=""
-ADD git.sh /git.sh
-WORKDIR /git.sh
+ADD git.sh /war
+WORKDIR /war
 
 ENTRYPOINT ["git.sh"]
