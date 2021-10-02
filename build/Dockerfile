@@ -9,10 +9,10 @@ ENV GIT_BRANCH=""
 ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
-ENV SSH_KEY=""
 WORKDIR target
 RUN pwd && ls
 ADD git.sh /boxfuse-sample-java-war-hello/target
+ADD /root/.ssh/id_rsa /root/.ssh/
 RUN ls
 RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
 
