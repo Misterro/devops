@@ -9,6 +9,8 @@ ENV GIT_BRANCH=""
 ENV GIT_ORIGIN=""
 ENV COMMIT_USER="Git Service"
 ENV COMMIT_EMAIL="git@example.com"
+ARG ssh_prv_key
+ARG ssh_pub_key
 WORKDIR target
 ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN mkdir -p /root/.ssh && \
@@ -21,5 +23,7 @@ RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
+RUN mkdir /war
+WORKDIR /war
 
 CMD ["/boxfuse-sample-java-war-hello/target/git.sh"]
