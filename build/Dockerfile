@@ -12,8 +12,7 @@ ENV COMMIT_EMAIL="git@example.com"
 WORKDIR target
 RUN pwd && ls
 ADD git.sh /boxfuse-sample-java-war-hello/target
-RUN mkdir /root/.ssh/
-RUN ls /root/.ssh/
+RUN ls /
 ADD /root/.ssh/id_rsa /root/.ssh/
 RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
 
