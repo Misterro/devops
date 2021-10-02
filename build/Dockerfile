@@ -15,6 +15,6 @@ WORKDIR target
 RUN pwd && ls
 ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN ls
-RUN ls /boxfuse-sample-java-war-hello/target/
+RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
 
 CMD ["/boxfuse-sample-java-war-hello/target/git.sh"]
