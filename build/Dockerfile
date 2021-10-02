@@ -14,7 +14,7 @@ ARG ssh_pub_key
 RUN mkdir /war && cp target/hello-1.0.war /war
 RUN mkdir -p /root/.ssh && \
     chmod 0700 /root/.ssh && \
-    ssh-keyscan github.com > /root/.ssh/known_hosts
+    ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 
 # Add the keys and set permissions
 RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
