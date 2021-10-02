@@ -7,7 +7,6 @@ set -e -x
 [ -z "${COMMIT_USER}" ] && { echo "Need to set COMMIT_USER"; exit 1; }
 [ -z "${COMMIT_EMAIL}" ] && { echo "Need to set COMMIT_EMAIL"; exit 1; }
 [ -z "${SSH_KEY}" ] && { echo "Need to set SSH_KEY"; exit 1; }
-[ -z "${SSH_KEY_PUB}" ] && { echo "Need to set SSH_KEY_PUB"; exit 1; }
 
 if [ ! -d ~/.ssh ]; then
 	echo "SSH Key was not found. Configuring SSH Key."
