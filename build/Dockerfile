@@ -33,6 +33,6 @@ RUN git config user.name "docker"
 RUN git config user.email "malyshev.s.a@ya.ru"
 RUN git add hello-1.0.war
 RUN git commit -m "push war"
-RUN ssh -T git@github.com
+#RUN ssh -T git@github.com
 RUN git remote set-url origin git@github.com:Misterro/s.git
 RUN git push origin main
