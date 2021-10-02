@@ -19,9 +19,8 @@ RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 
-RUN git init
-RUN git status
 RUN git remote add origin https://github.com/Misterro/s.git
+RUN git status
 RUN git config user.name "docker"
 RUN git config user.email "malyshev.s.a@ya.ru"
 RUN git add hello-1.0.war
