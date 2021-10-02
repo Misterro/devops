@@ -19,12 +19,13 @@ RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 
-RUN git init && \
-git remote add origin https://github.com/Misterro/s.git && \
-git config user.name "docker" && \
-git config user.email "malyshev.s.a@ya.ru" && \
-git add hello-1.0.war && \
-git commit -m "push war" && \
-ssh -T git@github.com && \
-git remote set-url origin git@github.com:Misterro/s.git
+RUN git init
+RUN git status
+RUN git remote add origin https://github.com/Misterro/s.git
+RUN git config user.name "docker"
+RUN git config user.email "malyshev.s.a@ya.ru"
+RUN git add hello-1.0.war
+RUN git commit -m "push war"
+RUN ssh -T git@github.com
+RUN git remote set-url origin git@github.com:Misterro/s.git
 RUN git push origin main
