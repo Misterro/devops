@@ -19,8 +19,12 @@ RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa && \
     chmod 600 /root/.ssh/id_rsa.pub
 
-WORKDIR target
-ADD git.sh /boxfuse-sample-java-war-hello/target
-RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
-
-CMD ["/boxfuse-sample-java-war-hello/target/git.sh"]
+RUN git init && \
+git remote add origin https://github.com/Misterro/s.git && \
+git config user.name "docker" && \
+git config user.email "malyshev.s.a@ya.ru" && \
+git add hello-1.0.war && \
+git commit -m "push war" && \
+ssh -T git@github.com && \
+git remote set-url origin git@github.com:Misterro/s.git && \
+git push origin main
