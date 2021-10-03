@@ -7,6 +7,7 @@ tar xvzf apache-tomcat-9.0.53.tar.gz --strip-components 1 --directory /usr/local
 rm apache-tomcat-9.0.53.tar.gz && \
 /usr/local/tomcat/bin/catalina.sh version
 RUN git clone https://github.com/Misterro/s.git
+RUN ls /s
 RUN find /s -maxdepth 1 -type f -name "*.war" | sort -n | tail -n 1
 RUN cp $(find /s -maxdepth 1 -type f -name "*.war" | sort -n | tail -n 1) /usr/local/tomcat/webapps/
 RUN apk del curl git
