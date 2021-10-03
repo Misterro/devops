@@ -15,7 +15,8 @@ WORKDIR target
 RUN pwd
 ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN mkdir -p /root/.ssh && \
-    chmod 0700 /root/.ssh
+    chmod 0700 /root/.ssh && \
+    ssh-keyscan github.com > /root/.ssh/known_hosts
 
 # Add the keys and set permissions
 RUN echo "$ssh_prv_key" > /root/.ssh/id_rsa && \
