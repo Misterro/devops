@@ -13,7 +13,7 @@ git fetch
 git checkout -t ${GIT_ORIGIN}/${GIT_BRANCH}
 git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"
-git add hello-1.0.war
+git add .
 git commit -m "Update detected changes."
 ls -la /root/.ssh/
 ssh -Tv git@github.com

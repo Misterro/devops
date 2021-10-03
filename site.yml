@@ -16,7 +16,7 @@
       dest: /tmp
 
   - name: Ensure Dockerfile is build
-    shell: docker build /tmp
+    shell: docker build -t war:latest --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" build/
 
 - name: run
   hosts: run
