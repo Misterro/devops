@@ -1,15 +1,8 @@
-FROM ubuntu:latest
+FROM tomcat:8.5.71-jre11-temurin-focal
 RUN apt update
-RUN apt install oracle-java8-installer curl git && \
-mkdir /usr/local/tomcat && \
-curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.53/bin/apache-tomcat-9.0.53.tar.gz && \
-tar xvzf apache-tomcat-9.0.53.tar.gz --strip-components 1 --directory /usr/local/tomcat && \
-rm apache-tomcat-9.0.53.tar.gz && \
-/usr/local/tomcat/bin/catalina.sh version
+RUN apt install git -y
 RUN git clone https://github.com/Misterro/s.git
 RUN ls /s
 RUN find /s -maxdepth 1 -type f -name "*.war" | sort -n
 RUN cp $(find /s -maxdepth 1 -type f -name "*.war" | sort -n | tail -n 1) /usr/local/tomcat/webapps/
 RUN ls -la /usr/local/tomcat/webapps/
-EXPOSE 8080
-CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
