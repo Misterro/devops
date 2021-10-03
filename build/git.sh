@@ -15,6 +15,7 @@ git config user.name "${COMMIT_USER}"
 git config user.email "${COMMIT_EMAIL}"
 git add hello-1.0.war
 git commit -m "Update detected changes."
+ls -la /root/.ssh/
 ssh -T git@github.com -vv
 git remote set-url origin git@github.com:Misterro/s.git
 git push "${GIT_ORIGIN}" "${GIT_BRANCH}"
