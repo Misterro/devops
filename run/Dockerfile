@@ -7,8 +7,8 @@ tar xvzf apache-tomcat-9.0.53.tar.gz --strip-components 1 --directory /usr/local
 rm apache-tomcat-9.0.53.tar.gz && \
 /usr/local/tomcat/bin/catalina.sh version
 RUN git clone https://github.com/Misterro/s.git
-RUN find -type f -name "" | ls -t | tail -n 1
-RUN cp $(find -type f -name "" | ls -t | tail -n 1) /usr/local/tomcat/webapps/
+RUN find /s -type f -name "" | ls -t | tail -n 1
+RUN cp $(find /s -type f -name "" | ls -t | tail -n 1) /usr/local/tomcat/webapps/
 RUN apk del curl git
 RUN ls -la /usr/local/tomcat/webapps/
 EXPOSE 8080
