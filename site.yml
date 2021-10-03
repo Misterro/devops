@@ -38,4 +38,7 @@
         state: /tmp
 
     - name: Ensure Dockerfile is run
-      shell: docker build /tmp
+      shell: docker build -t run:latest run/
+
+    - name: Ensure tomact is running
+      shell: docker run -p 8084:8080 -d run:latest
