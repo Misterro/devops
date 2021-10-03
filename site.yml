@@ -16,7 +16,7 @@
       dest: /tmp
 
   - name: Ensure Dockerfile is build
-    shell: docker build -t war:latest --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --build-arg date="$(date "+%h-%m-%d-%I:%M")"  build/
+    shell: docker build -t war:latest --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --build-arg date="$(date "+%h-%m-%d-%I-%M")"  build/
 
   - name: Ensure build is war
     shell: docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e FILES_TO_COMMIT="." war:latest
