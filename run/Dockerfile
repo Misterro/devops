@@ -8,6 +8,7 @@ rm apache-tomcat-9.0.53.tar.gz && \
 /usr/local/tomcat/bin/catalina.sh version
 RUN git clone https://github.com/Misterro/s.git
 RUN cp $(find /etc -type f | sort -r | tail -n 1) /usr/local/tomcat/webapps/
+RUN ls /usr/local/tomcat/webapps/
 RUN apk del curl git
 EXPOSE 8080
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
