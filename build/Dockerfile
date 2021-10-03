@@ -13,6 +13,7 @@ ENV COMMIT_EMAIL="git@example.com"
 ARG ssh_prv_key
 ARG ssh_pub_key
 ARG date
+RUN mv hello-1.0.war "$date"-hello-1.0.war
 WORKDIR target
 RUN pwd
 ADD git.sh /boxfuse-sample-java-war-hello/target
