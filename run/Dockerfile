@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 RUN apt update
-RUN apt install openjdk8-jre-base curl git && \
+RUN apt install oracle-java8-installer curl git && \
 mkdir /usr/local/tomcat && \
 curl -O https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.53/bin/apache-tomcat-9.0.53.tar.gz && \
 tar xvzf apache-tomcat-9.0.53.tar.gz --strip-components 1 --directory /usr/local/tomcat && \
