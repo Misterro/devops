@@ -35,8 +35,10 @@
       community.docker.docker_container:
         name: push_war
         image: war:latest
-        volumes:
-          - /tmp:/boxfuse-sample-java-war-hello/target
+    
+    - name: Ensure copy war
+      community.docker.docker:
+        docker_extra_args: cp war:/tmp    
 
 - name: run
   hosts: run
