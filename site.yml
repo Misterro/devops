@@ -37,7 +37,7 @@
         image: war:latest
     
     - name: Ensure copy war
-      community.docker.docker:
+      community.docker.docker_api:
         docker_extra_args: cp war:/tmp    
 
 - name: run
