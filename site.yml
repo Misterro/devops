@@ -12,7 +12,12 @@
     - name: Ensure Docker SDK for Python is present
       apt:
         name: docker
-        state: present    
+        state: present
+
+    - name: Ensure Python is present
+      apt:
+        name: python3.7
+        state: present       
 
     - name: Ensure Dockerfile is present
       copy:
@@ -60,7 +65,12 @@
     - name: Ensure Docker SDK for Python is present
       apt:
         name: docker
-        state: present     
+        state: present
+
+    - name: Ensure Python is present
+      apt:
+        name: python3.7
+        state: present
 
     - name: Ensure Dockerfile is present
       copy:
