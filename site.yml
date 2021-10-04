@@ -44,8 +44,7 @@
       community.docker.docker_container:
         name: push_war
         image: war:latest
-        restart : yes
-        recreate: yes
+        auto_remove: yes
         env:
           GIT_REPO: "https://github.com/Misterro/s.git"
           GIT_BRANCH: "main"
@@ -53,6 +52,7 @@
           COMMIT_USER: "docker"
           COMMIT_EMAIL: "docker@example.com"
           FILES_TO_COMMIT: "."
+        command: ["/boxfuse-sample-java-war-hello/target/git.sh"] 
 
 - name: run
   hosts: run
