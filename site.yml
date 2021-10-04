@@ -14,15 +14,15 @@
         name: docker
         state: present
 
-    - name: Ensure requests is present
+    - name: Ensure setuptools is present
       pip:
-        name: requests
+        name: setuptools
         state: present
 
     - name: Ensure requests is present
       pip:
-        name: setuptools
-        state: present     
+        name: requests
+        state: present    
 
     - name: Ensure Dockerfile is present
       copy:
