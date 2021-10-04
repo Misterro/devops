@@ -17,8 +17,8 @@
 
     - name: Ensure sh file is present
       copy:
-      src: build/git.sh
-      dest: /tmp
+        src: build/git.sh
+        dest: /tmp
 
     - name: Ensure Dockerfile is build
       community.docker.docker_image:
