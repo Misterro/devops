@@ -11,7 +11,7 @@
 
     - name: Ensure pip is present
       apt:
-        name: python-pip3
+        name: python-pip
         state: present
 
     - name: Ensure Docker SDK for Python is present
