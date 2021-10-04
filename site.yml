@@ -6,42 +6,42 @@
   tasks:
 
     - name: Ensure docker package is present
-    apt:
-      name: docker.io
-      state: present
+      apt:
+        name: docker.io
+        state: present
 
     - name: Ensure Dockerfile is present
-    copy:
-      src: build/Dockerfile
-      dest: /tmp
+      copy:
+        src: build/Dockerfile
+        dest: /tmp
 
     - name: Ensure sh file is present
-    copy:
+      copy:
       src: build/git.sh
       dest: /tmp
 
     - name: Ensure Dockerfile is build
-    community.docker.docker_image:
-      name: war:latest
-      build:
-        path: /tmp
-        args:
-          ssh_prv_key: "$(cat ~/.ssh/id_rsa)"
-          ssh_pub_key: "$(cat ~/.ssh/id_rsa.pub)"
-          date: "$(date \"+%h-%m-%d-%I-%M\")"
-      source: build    
+      community.docker.docker_image:
+        name: war:latest
+        build:
+          path: /tmp
+          args:
+            ssh_prv_key: "$(cat ~/.ssh/id_rsa)"
+            ssh_pub_key: "$(cat ~/.ssh/id_rsa.pub)"
+            date: "$(date \"+%h-%m-%d-%I-%M\")"
+        source: build    
 
     - name: Ensure build is war
-    community.docker.docker_container:
-      name: run build container
-      image: war:latest
-      env:
-        GIT_REPO: "https://github.com/Misterro/s.git"
-        GIT_BRANCH: "main"
-        GIT_ORIGIN: "origin"
-        COMMIT_USER: "docker"
-        COMMIT_EMAIL: "docker@example.com"
-        FILES_TO_COMMIT: "."
+      community.docker.docker_container:
+        name: run build container
+        image: war:latest
+        env:
+          GIT_REPO: "https://github.com/Misterro/s.git"
+          GIT_BRANCH: "main"
+          GIT_ORIGIN: "origin"
+          COMMIT_USER: "docker"
+          COMMIT_EMAIL: "docker@example.com"
+          FILES_TO_COMMIT: "."
 
 - name: run
   hosts: run
