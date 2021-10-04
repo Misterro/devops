@@ -26,6 +26,8 @@
 
     - name: Ensure Dockerfile is build
       community.docker.docker_image:
+        build:
+          path: /tmp
         name: war:latest
         source: build    
 
