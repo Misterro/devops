@@ -40,10 +40,11 @@
             date: "$(date \"+%h-%m-%d-%I-%M\")"
         source: build    
 
-    - name: Ensure build is war
+    - name: Ensure run is war
       community.docker.docker_container:
         name: push_war
         image: war:latest
+        recreate: yes
         env:
           GIT_REPO: "https://github.com/Misterro/s.git"
           GIT_BRANCH: "main"
