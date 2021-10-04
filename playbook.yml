@@ -10,7 +10,7 @@
         state: present
   
     - name: Change namw
-      lineinfile:
+      ansible.builtin.replace:
         path: /var/www/html/index.html
         after: "Welcome nginx"
         before: "<p><script> document.write(new Date().toLocaleDateString()); </script></p>"
