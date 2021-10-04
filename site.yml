@@ -4,7 +4,6 @@
   become: yes
 
   tasks:
-
     - name: Ensure docker package is present
       apt:
         name: docker.io
@@ -48,7 +47,6 @@
   become: yes
 
   tasks:
-
     - name: Ensure docker package is present
       apt:
         name: docker.io
