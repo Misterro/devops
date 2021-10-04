@@ -54,8 +54,6 @@
           COMMIT_USER: "docker"
           COMMIT_EMAIL: "docker@example.com"
           FILES_TO_COMMIT: "."
-        healthcheck:
-          test: ["ping"]  
 
 - name: run
   hosts: run

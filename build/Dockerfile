@@ -28,4 +28,4 @@ RUN chmod +x /boxfuse-sample-java-war-hello/target/git.sh
 RUN mkdir /war && cp /boxfuse-sample-java-war-hello/target/"$date"-hello-1.0.war /war
 WORKDIR /war
 
-CMD ["/boxfuse-sample-java-war-hello/target/git.sh"]
+CMD ["./boxfuse-sample-java-war-hello/target/git.sh"]
