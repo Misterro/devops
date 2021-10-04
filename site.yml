@@ -17,7 +17,7 @@
     - name: Ensure Docker SDK for Python is present
       pip:
         name: docker
-        state: present    
+        state: present
 
     - name: Ensure Dockerfile is present
       copy:
@@ -42,7 +42,7 @@
 
     - name: Ensure build is war
       community.docker.docker_container:
-        name: run_build_container
+        name: push_war
         image: war:latest
         env:
           GIT_REPO: "https://github.com/Misterro/s.git"
@@ -62,9 +62,14 @@
         name: docker.io
         state: present
 
-    - name: Ensure Docker SDK for Python is present
+    - name: Ensure pip is present
       apt:
-        name: dockerdocker=5.0.2
+        name: python-pip
+        state: present
+
+    - name: Ensure Docker SDK for Python is present
+      pip:
+        name: docker
         state: present
 
     - name: Ensure Dockerfile is present
