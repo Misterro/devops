@@ -24,36 +24,17 @@
         src: build/Dockerfile
         dest: /tmp
 
-    - name: Ensure sh file is present
-      copy:
-        src: build/git.sh
-        dest: /tmp
-
     - name: Ensure Dockerfile is build
       community.docker.docker_image:
         name: war:latest
-        build:
-          path: /tmp
-          args:
-            ssh_prv_key: "$(cat ~/.ssh/id_rsa)"
-            ssh_pub_key: "$(cat ~/.ssh/id_rsa.pub)"
-            date: "$(date \"+%h-%m-%d-%I-%M\")"
         source: build    
 
     - name: Ensure run is war
       community.docker.docker_container:
         name: push_war
         image: war:latest
-        state: present
-        restart: yes
-        auto_remove: yes
-        env:
-          GIT_REPO: "https://github.com/Misterro/s.git"
-          GIT_BRANCH: "main"
-          GIT_ORIGIN: "origin"
-          COMMIT_USER: "docker"
-          COMMIT_EMAIL: "docker@example.com"
-          FILES_TO_COMMIT: "."
+        volumes:
+          - /tmp:/boxfuse-sample-java-war-hello/target
 
 - name: run
   hosts: run
