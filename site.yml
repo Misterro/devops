@@ -9,6 +9,11 @@
         name: docker.io
         state: present
 
+    - name: Ensure Docker SDK for Python is present
+      apt:
+        name: docker
+        state: present    
+
     - name: Ensure Dockerfile is present
       copy:
         src: build/Dockerfile
@@ -51,6 +56,11 @@
       apt:
         name: docker.io
         state: present
+
+    - name: Ensure Docker SDK for Python is present
+      apt:
+        name: docker
+        state: present     
 
     - name: Ensure Dockerfile is present
       copy:
