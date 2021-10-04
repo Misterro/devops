@@ -1,0 +1,78 @@
+---
+- name: build
+  hosts: build
+  become: yes
+
+  tasks:
+    - name: Ensure docker package is present
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Ensure pip is present
+      apt:
+        name: python-pip
+        state: present
+
+    - name: Ensure Docker SDK for Python is present
+      pip:
+        name: docker
+        state: present
+
+    - name: Ensure Dockerfile is present
+      copy:
+        src: build/Dockerfile
+        dest: /tmp
+
+    - name: Ensure Dockerfile is build
+      community.docker.docker_image:
+        build:
+          path: /tmp
+        name: war:latest
+        source: build
+
+    - name: Ensure run is war
+      community.docker.docker_container:
+        name: push_war
+        image: war:latest
+        volumes_from:
+          - /boxfuse-sample-java-war-hello/target
+
+- name: run
+  hosts: run
+  become: yes
+
+  tasks:
+    - name: Ensure docker package is present
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Ensure pip is present
+      apt:
+        name: python-pip
+        state: present
+
+    - name: Ensure Docker SDK for Python is present
+      pip:
+        name: docker
+        state: present
+
+    - name: Ensure Dockerfile is present
+      copy:
+        src: run/Dockerfile
+        dest: /tmp
+
+    - name: Ensure Dockerfile is run
+      community.docker.docker_image:
+        name: run:latest
+        build:
+          path: /tmp
+        source: build  
+
+    - name: Ensure tomact is running
+      community.docker.docker_container:
+        name: run_tomcat
+        image: run:latest
+        ports: 8084:8080
+        detach: yes
