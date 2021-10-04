@@ -29,7 +29,7 @@
         build:
           path: /tmp
         name: war:latest
-        source: build    
+        source: build
 
     - name: Ensure run is war
       community.docker.docker_container:

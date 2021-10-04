@@ -4,3 +4,4 @@ RUN apt-get install git maven openssh-server -y
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR boxfuse-sample-java-war-hello/
 RUN mvn package
+VOLUME /tmp
