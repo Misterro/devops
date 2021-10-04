@@ -40,7 +40,7 @@
     - name: Ensure Dockerfile is present
       copy:
         src: run/Dockerfile
-        state: /tmp
+        dest: /tmp
 
     - name: Ensure Dockerfile is run
       shell: docker build -t run:latest /tmp
