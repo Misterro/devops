@@ -44,6 +44,7 @@
       community.docker.docker_container:
         name: push_war
         image: war:latest
+        state: started
         recreate: yes
         env:
           GIT_REPO: "https://github.com/Misterro/s.git"
