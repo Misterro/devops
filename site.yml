@@ -15,6 +15,11 @@
       src: build/Dockerfile
       dest: /tmp
 
+  - name: Ensure sh file is present
+    copy:
+      src: build/git.sh
+      dest: /tmp
+
   - name: Ensure Dockerfile is build
     shell: docker build -t war:latest --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --build-arg date="$(date "+%h-%m-%d-%I-%M")"  /tmp
 
@@ -38,7 +43,7 @@
         state: /tmp
 
     - name: Ensure Dockerfile is run
-      shell: docker build -t run:latest run/
+      shell: docker build -t run:latest /tmp
 
     - name: Ensure tomact is running
       shell: docker run -p 8084:8080 -d run:latest
