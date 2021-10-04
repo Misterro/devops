@@ -21,10 +21,27 @@
       dest: /tmp
 
   - name: Ensure Dockerfile is build
-    shell: docker build -t war:latest --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --build-arg date="$(date "+%h-%m-%d-%I-%M")"  /tmp
+    community.docker.docker_image:
+      name: war:latest
+      build:
+        path: /tmp
+        args:
+          ssh_prv_key: "$(cat ~/.ssh/id_rsa)"
+          ssh_pub_key: "$(cat ~/.ssh/id_rsa.pub)"
+          date: "$(date \"+%h-%m-%d-%I-%M\")"
+      source: build    
 
   - name: Ensure build is war
-    shell: docker run -e GIT_REPO="https://github.com/Misterro/s.git" -e GIT_BRANCH="main" -e GIT_ORIGIN="origin" -e COMMIT_USER="docker" -e COMMIT_EMAIL="docker@example.com" -e FILES_TO_COMMIT="." war:latest
+    community.docker.docker_container:
+      name: run build container
+      image: war:latest
+      env:
+        GIT_REPO: "https://github.com/Misterro/s.git"
+        GIT_BRANCH: "main"
+        GIT_ORIGIN: "origin"
+        COMMIT_USER: "docker"
+        COMMIT_EMAIL: "docker@example.com"
+        FILES_TO_COMMIT: "."
 
 - name: run
   hosts: run
@@ -43,7 +60,15 @@
         dest: /tmp
 
     - name: Ensure Dockerfile is run
-      shell: docker build -t run:latest /tmp
+      community.docker.docker_image:
+        name: run:latest
+        build:
+          path: /tmp
+        source: build  
 
     - name: Ensure tomact is running
-      shell: docker run -p 8084:8080 -d run:latest
+      community.docker.docker_container:
+        name: run tomcat with war
+        image: run:latest
+        ports: 8084:8080
+        detach: yes
