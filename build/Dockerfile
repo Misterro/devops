@@ -1,7 +1,6 @@
 FROM ubuntu:18.04
 RUN apt-get update
 RUN apt-get install git maven openssh-server -y
-RUN apt-get install nano -y
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR boxfuse-sample-java-war-hello/
 RUN mvn package
@@ -15,7 +14,6 @@ ARG ssh_pub_key
 ARG date
 RUN mv /boxfuse-sample-java-war-hello/target/hello-1.0.war /boxfuse-sample-java-war-hello/target/"$date"-hello-1.0.war
 WORKDIR target
-RUN pwd
 ADD git.sh /boxfuse-sample-java-war-hello/target
 RUN mkdir -p /root/.ssh && \
     chmod 0700 /root/.ssh && \
