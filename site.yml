@@ -9,19 +9,14 @@
         name: docker.io
         state: present
 
-    - name: Ensure Docker SDK for Python is present
+    - name: Ensure pip is present
       apt:
+        name: python-pip3
+        state: present
+
+    - name: Ensure Docker SDK for Python is present
+      pip:
         name: docker
-        state: present
-
-    - name: Ensure setuptools is present
-      pip:
-        name: setuptools
-        state: present
-
-    - name: Ensure requests is present
-      pip:
-        name: requests
         state: present    
 
     - name: Ensure Dockerfile is present
