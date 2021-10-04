@@ -42,7 +42,7 @@
 
     - name: Ensure build is war
       community.docker.docker_container:
-        name: run build container
+        name: run_build_container
         image: war:latest
         env:
           GIT_REPO: "https://github.com/Misterro/s.git"
