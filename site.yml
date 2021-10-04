@@ -86,7 +86,7 @@
 
     - name: Ensure tomact is running
       community.docker.docker_container:
-        name: run tomcat with war
+        name: run_tomcat
         image: run:latest
         ports: 8084:8080
         detach: yes
