@@ -11,7 +11,7 @@
 
     - name: Ensure Docker SDK for Python is present
       apt:
-        name: docker=5.0.2
+        name: docker
         state: present     
 
     - name: Ensure Dockerfile is present
