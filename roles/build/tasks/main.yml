@@ -8,7 +8,7 @@
     name: docker.io
     state: present
 
-- name:
+- name: Build docker image
   community.docker.docker_image:
     build:
       path: /tmp
