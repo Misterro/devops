@@ -5,10 +5,8 @@
 
 - name: install docker.io
   apt:
-    name: {{ item }}
+    name: docker.io
     state: present
-  with_items:
-    - docker.io
 
 - name:
   community.docker.docker_image:
