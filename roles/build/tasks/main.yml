@@ -8,11 +8,16 @@
     name: docker.io
     state: present
 
+- name: auth dockerhub
+  community.docker.docker_login:
+    username: malyshevsa
+    password: 64b0a509-9e39-410d-99d2-9f0e74d8c0a7
+
 - name: Build docker image
   community.docker.docker_image:
     build:
       path: /tmp
-    name: war:latest
+    name: war
     repository: malyshevsa/build:latest
     push: yes
     source: build
