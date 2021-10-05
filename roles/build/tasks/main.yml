@@ -1,2 +1,19 @@
 ---
 # tasks file for build
+- name: add docker file
+  copy: src=Dockerfile dest=dest_folder
+
+- name: install docker.io
+  apt:
+    name: {{ item }}
+    state: present
+  loop:
+    - docker.io
+
+- name:
+  community.docker.docker_image:
+    build:
+      path: /tmp
+    repository: malyshevsa/build:latest
+    push: yes
+    source: build

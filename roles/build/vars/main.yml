@@ -1,2 +1,3 @@
 ---
 # vars file for build
+- dest_folder: /tmp
