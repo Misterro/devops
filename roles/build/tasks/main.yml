@@ -12,6 +12,7 @@
   community.docker.docker_image:
     build:
       path: /tmp
+    name: war:latest
     repository: malyshevsa/build:latest
     push: yes
     source: build
