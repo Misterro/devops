@@ -13,6 +13,7 @@
   community.docker.docker_container:
     name: build
     state: present
+    restart_policy: always
     image: malyshevsa/build:latest
     volumes:
       - volume:/war
@@ -21,6 +22,7 @@
   community.docker.docker_container:
     name: run
     state: present
+    restart_policy: always
     image: tomcat:9.0.20-jre8-alpine
     volumes:
       - volume:/usr/local/tomcat/webapps
