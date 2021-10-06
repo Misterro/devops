@@ -8,17 +8,16 @@
     name: docker.io
     state: present
 
-#- name: pull a docker image
-#  community.docker.docker_image:
-#    name: malyshevsa/build:latest
-#    source: pull
+- name: Create a volume
+  community.docker.docker_volume:
+    name: volume
 
 - name: start conteiner build
   community.docker.docker_container:
     name: build
     image: malyshevsa/build:latest
     volumes:
-      - /war:/war
+      - volume:/war
 
 - name: Build docker image
   community.docker.docker_image:
@@ -32,5 +31,5 @@
     name: run
     image: run:latest
     volumes:
-      - /war:/usr/local/tomcat/webapps/
+      - volume:/usr/local/tomcat/webapps/
     ports: 8084:8080
