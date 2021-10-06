@@ -18,7 +18,7 @@
     name: build
     image: malyshevsa/build:latest
     volumes:
-      - /war
+      - /war:/war
 
 - name: Build docker image
   community.docker.docker_image:
@@ -31,6 +31,6 @@
   community.docker.docker_container:
     name: run
     image: run:latest
-    volumes_from:
-      - build
+    volumes:
+      - /war:/usr/local/tomcat/webapps/
     ports: 8084:8080
