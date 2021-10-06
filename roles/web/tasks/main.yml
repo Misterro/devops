@@ -8,10 +8,6 @@
     name: docker.io
     state: present
 
-- name: Create a volume
-  community.docker.docker_volume:
-    name: volume
-
 - name: start conteiner build
   community.docker.docker_container:
     name: build
@@ -30,7 +26,6 @@
   community.docker.docker_container:
     name: run
     image: run:latest
-    mounts:
-      - target: /usr/local/tomcat/webapps/
-      - source: volume
+    volumes:
+      - /tmp:/war
     ports: 8084:8080
