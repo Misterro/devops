@@ -15,17 +15,10 @@
     volumes:
       - /tmp:/war/hello-1.0.war
 
-- name: Build docker image
-  community.docker.docker_image:
-    build:
-      path: /tmp
-    name: run
-    source: build
-
 - name: start conteiner run
   community.docker.docker_container:
     name: run
-    image: run:latest
+    image: tomcat:9.0.20-jre8-alpine
     volumes:
       - /tmp:/usr/local/tomcat/webapps/
     ports: 8084:8080
