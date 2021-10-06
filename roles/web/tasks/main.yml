@@ -1,8 +1,5 @@
 ---
 # tasks file for web
-- name: add Dockerfile
-  copy: src=Dockerfile dest=/tmp
-
 - name: install docker.io
   apt:
     name: docker.io
