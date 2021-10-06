@@ -6,4 +6,4 @@
 
 - hosts: run
   roles:
-    - run
+    - web
