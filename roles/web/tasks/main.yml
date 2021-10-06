@@ -32,5 +32,5 @@
     name: run
     image: run:latest
     volumes_from:
-      - build:/usr/local/tomcat/webapps/
+      - build
     ports: 8084:8080
