@@ -18,7 +18,7 @@
     image: malyshevsa/build:latest
     mounts:
       - source: volume
-      - target: /war
+      - target: .
 
 - name: Build docker image
   community.docker.docker_image:
