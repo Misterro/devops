@@ -8,6 +8,7 @@
 - name: start conteiner build
   community.docker.docker_container:
     name: build
+    state: present
     image: malyshevsa/build:latest
     volumes:
       - /tmp:/war
@@ -15,6 +16,7 @@
 - name: start conteiner run
   community.docker.docker_container:
     name: run
+    state: present
     image: tomcat:9.0.20-jre8-alpine
     volumes:
       - /tmp:/usr/local/tomcat/webapps
