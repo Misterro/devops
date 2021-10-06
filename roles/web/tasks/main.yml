@@ -1,2 +1,36 @@
 ---
 # tasks file for web
+- name: add Dockerfile
+  copy: scr=Dockerfile dest=/tmp
+
+- name: install docker.io
+  apt:
+    name: docker.io
+    state: present
+
+- name: pull a docker image
+  community.docker.docker_image:
+    name: malyshevsa/build:latest
+    source: pull
+
+- name: start conteiner build
+  community.docker.docker_container:
+    name: build
+    image: build:latest
+    volumes:
+      - /tmp/war:/war
+
+- name: Build docker image
+  community.docker.docker_image:
+    build:
+      path: /tmp
+    name: run
+    source: build
+
+- name: start conteiner run
+  community.docker.docker_container:
+    name: run
+    image: run:latest
+    volumes:
+      - /tmp/war:/usr/local/tomcat/webapps/
+    ports: 8084:8080
