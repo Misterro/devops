@@ -10,12 +10,12 @@
     name: build
     image: malyshevsa/build:latest
     volumes:
-      - /tmp:/war/hello-1.0.war
+      - /tmp:/war
 
 - name: start conteiner run
   community.docker.docker_container:
     name: run
     image: tomcat:9.0.20-jre8-alpine
     volumes:
-      - /tmp:/usr/local/tomcat/webapps/
+      - /tmp:/usr/local/tomcat/webapps
     ports: 8084:8080
