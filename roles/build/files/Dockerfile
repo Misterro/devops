@@ -5,6 +5,4 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello
 WORKDIR boxfuse-sample-java-war-hello/
 RUN mvn package
 RUN mkdir /war
-RUN ls /boxfuse-sample-java-war-hello/target/
 RUN cp /boxfuse-sample-java-war-hello/target/hello-1.0.war /war
-RUN ls /war
