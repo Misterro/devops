@@ -13,7 +13,7 @@
     name: build
     image: malyshevsa/build:latest
     volumes:
-      - /tmp:/war
+      - /tmp:/war/hello-1.0.war
 
 - name: Build docker image
   community.docker.docker_image:
