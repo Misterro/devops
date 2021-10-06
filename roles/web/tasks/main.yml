@@ -8,15 +8,15 @@
     name: docker.io
     state: present
 
-- name: pull a docker image
-  community.docker.docker_image:
-    name: malyshevsa/build:latest
-    source: pull
+#- name: pull a docker image
+#  community.docker.docker_image:
+#    name: malyshevsa/build:latest
+#    source: pull
 
 - name: start conteiner build
   community.docker.docker_container:
     name: build
-    image: build:latest
+    image: malyshevsa/build:latest
     volumes:
       - /tmp/war:/war
 
