@@ -27,5 +27,5 @@
     name: run
     image: run:latest
     volumes:
-      - /tmp:/war
+      - /tmp:/usr/local/tomcat/webapps/
     ports: 8084:8080
