@@ -11,7 +11,7 @@
     state: present
     image: malyshevsa/build:latest
     volumes:
-      - /tmp:/war[:shared]
+      - /tmp:/war[shared]
 
 - name: start conteiner run
   community.docker.docker_container:
