@@ -5,6 +5,11 @@
     name: docker.io
     state: present
 
+- name: install docker.io
+  apt:
+    name: pip3
+    state: present
+
 - name: install pip docker
   pip:
     name: docker
