@@ -3,7 +3,7 @@
 - name: add docker file
   copy: 
     src: Dockerfile 
-    dest: {{ dest_folder }}
+    dest: /tmp
 
 - name: install packages
   apt: 
