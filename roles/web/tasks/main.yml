@@ -13,7 +13,6 @@
   community.docker.docker_container:
     name: build
     state: present
-    recreate: yes
     image: malyshevsa/build:latest
     volumes:
       - volume:/war
@@ -22,7 +21,6 @@
   community.docker.docker_container:
     name: run
     state: present
-    recreate: yes
     image: tomcat:9.0.20-jre8-alpine
     volumes:
       - volume:/usr/local/tomcat/webapps
