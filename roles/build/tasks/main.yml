@@ -8,6 +8,11 @@
     name: docker.io
     state: present
 
+- name: install pip docker
+  pip:
+    name: docker
+    state: present
+
 - name: auth dockerhub
   community.docker.docker_login:
     username: malyshevsa
