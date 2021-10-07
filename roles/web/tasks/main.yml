@@ -7,7 +7,7 @@
 
 - name: install pip
   apt:
-    name: pip3
+    name: pip
     state: present
 
 - name: install pip docker
