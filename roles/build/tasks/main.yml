@@ -3,16 +3,15 @@
 - name: add docker file
   copy: 
     src: Dockerfile 
-    dest: "{{ dest_folder }}"
+    dest: {{ dest_folder }}
 
 - name: install packages
   apt: 
-    name: {{ item }} 
+    pkg:
+      - docker.io
+      - python3-pip
+      - docker
     state: present
-  with_items: 
-    - docker.io
-    - python3-pip
-    - docker
 #- name: install pip
 #  apt: name=python3-pip state=present
 #
