@@ -8,6 +8,9 @@
     name: docker.io
     state: present
 
+- name: install pip
+  apt: name=python3-pip state=present
+
 - name: install pip docker
   pip:
     name: docker
