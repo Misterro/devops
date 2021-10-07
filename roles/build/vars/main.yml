@@ -2,3 +2,8 @@
 # vars file for build
 vars:
   dest_folders: "/tmp"
+
+  packages:
+    - docker.io
+    - python3-pip
+    - docker

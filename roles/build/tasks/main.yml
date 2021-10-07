@@ -1,20 +1,19 @@
 ---
 # tasks file for build
 - name: add docker file
-  copy: src=Dockerfile dest=/tmp
+  copy: src=Dockerfile dest={{ dest_folders }}
 
 - name: install docker.io
-  apt:
-    name: docker.io
-    state: present
+  apt: name = {{ item }} state=present
+  with_items: {{ packages }}
 
-- name: install pip
-  apt: name=python3-pip state=present
-
-- name: install pip docker
-  pip:
-    name: docker
-    state: present
+#- name: install pip
+#  apt: name=python3-pip state=present
+#
+#- name: install pip docker
+#  pip:
+#    name: docker
+#    state: present
 
 - name: auth dockerhub
   community.docker.docker_login:

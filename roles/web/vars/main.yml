@@ -1,2 +1,6 @@
 ---
 # vars file for web
+vars:
+  dest_folder_tomcat: "/usr/local/tomcat/webapps"
+
+  dest_folder_build: "/war"

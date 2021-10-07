@@ -23,7 +23,7 @@
     state: started
     image: malyshevsa/build:latest
     volumes:
-      - volume:/war
+      - volume:/{{ dest_folder_build }}
 
 - name: start conteiner run
   community.docker.docker_container:
@@ -31,5 +31,5 @@
     state: started
     image: tomcat:9.0.20-jre8-alpine
     volumes:
-      - volume:/usr/local/tomcat/webapps
+      - volume:{{ dest_folder_tomcat }}
     ports: 8084:8080
