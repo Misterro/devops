@@ -1,17 +1,10 @@
 ---
 # tasks file for web
-- name: install docker.io
-  apt:
-    name: docker.io
+- name: install packages
+  apt: 
+    name: {{ item }} 
     state: present
-
-- name: install pip
-  apt: name=python3-pip state=present
-
-- name: install pip docker
-  pip:
-    name: docker
-    state: present
+  with_items: {{ packages }}
 
 - name: Create a volume
   community.docker.docker_volume:

@@ -1,10 +1,14 @@
 ---
 # tasks file for build
 - name: add docker file
-  copy: src=Dockerfile dest={{ dest_folders }}
+  copy: 
+    src: Dockerfile 
+    dest: "{{ dest_folder }}"
 
-- name: install docker.io
-  apt: name={{ item }} state=present
+- name: install packages
+  apt: 
+    name: {{ item }} 
+    state: present
   with_items: {{ packages }}
 
 #- name: install pip

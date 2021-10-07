@@ -1,7 +1,7 @@
 ---
 # vars file for build
 vars:
-  dest_folders: "/tmp"
+  dest_folder: "/tmp"
 
   packages:
     - docker.io
