@@ -2,10 +2,8 @@
 # tasks file for web
 - name: install docker.io
   apt:
-    name: {{ item }}
+    name: docker.io
     state: present
-  with_items:
-    - "docker.io"
 
 - name: install pip docker
   pip:
