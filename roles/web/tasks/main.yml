@@ -5,8 +5,10 @@
     name: {{ item }} 
     state: present
   with_items: 
-    - {{ packages }}
-
+    - docker.io
+    - python3-pip
+    - docker
+    
 - name: Create a volume
   community.docker.docker_volume:
     name: volume
