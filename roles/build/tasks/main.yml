@@ -1,7 +1,7 @@
 ---
 # tasks file for build
 - name: add docker file
-  copy: src=Dockerfile dest=dest_folder
+  copy: src=Dockerfile dest=/tmp
 
 - name: install docker.io
   apt:
