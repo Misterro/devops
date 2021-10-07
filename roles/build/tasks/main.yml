@@ -12,13 +12,6 @@
       - python3-pip
       - docker
     state: present
-#- name: install pip
-#  apt: name=python3-pip state=present
-#
-#- name: install pip docker
-#  pip:
-#    name: docker
-#    state: present
 
 - name: auth dockerhub
   community.docker.docker_login:
