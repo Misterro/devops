@@ -24,7 +24,7 @@
 - name: Build docker image
   community.docker.docker_image:
     build:
-      path: /tmp
+      path: /tmp/Dockerfile
     name: war
     repository: malyshevsa/build:latest
     push: yes
