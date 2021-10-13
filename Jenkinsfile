@@ -30,5 +30,11 @@ pipeline {
                 sh 'docker tag box:run$version 178.154.202.215:8082/box:run$version && docker push 178.154.202.215:8082/box:run$version'
             }
         }
+        
+        stage ('run webapp') {
+            steps {
+                sh 'docker run -p 8083:8080 178.154.202.215:8082/box:run$version'
+            }
+        }
     }
 }
