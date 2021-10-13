@@ -1,4 +1,5 @@
 FROM docker:latest
 
 RUN apk update && apk add maven
-USER root
+RUN groupadd -r myuser && useradd -r -g myuser myuser
+USER myuser
