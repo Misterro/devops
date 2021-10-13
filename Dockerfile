@@ -1,4 +1,4 @@
-FROM openjdk:8u151-stretch
+FROM ubuntu
 
 RUN apt-get update
 
