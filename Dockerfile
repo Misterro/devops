@@ -1,3 +1,3 @@
 FROM docker
 
-RUN apt-get update && apt-get install maven -y
+RUN apk update && apk add openjdk8 && apk add maven
