@@ -1,4 +1,3 @@
-FROM docker
+FROM docker:latest
 
-RUN apk update && apk add openjdk8 && apk add maven
-ENTRYPOINT ["docker-entrypoint.sh"]
+RUN apk update && apk add maven
