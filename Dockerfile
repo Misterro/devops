@@ -1,5 +1,5 @@
 FROM docker:latest
 
 RUN apk update && apk add maven
-RUN adduser -S appuser -G root
+RUN addgroup -S docker && adduser -S appuser -G docker
 USER appuser
