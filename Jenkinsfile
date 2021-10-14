@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker.withRegistry('178.154.200.210:8082/box', 'b3b0b23b-c813-4ce9-a1c7-705e70653516') {
+        docker {
             image '178.154.200.210:8082/box:$version'
             args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
         }
