@@ -34,7 +34,7 @@ pipeline {
         stage ('run webapp') {
             agent any
             steps {
-                sh 'ls'
+                sh 'cat password | docker login 178.154.202.215:8082 --username admin --password-stdin && docker run -p 8084:8080 178.154.202.215:8082/box:run$version'
             }
         }
     }
