@@ -32,9 +32,7 @@ pipeline {
         }
         
         stage ('run webapp') {
-            agent {
-                    label 'node'
-                }
+            agent any
             steps {
                 sh 'ls'
             }
