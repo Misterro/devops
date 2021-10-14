@@ -1,22 +1,6 @@
 version: "3"
 services:
-  installition:
-    build: installation
-    volumes:
-      - type: volume
-        source: war
-        target: /boxfuse-sample-java-war-hello/
-
   run:
     build: run
-    volumes:
-      - type: volume
-        source: war
-        target: /usr/local/tomcat/webapps/
     ports:
       - 8084:8080
-    depends_on:
-      - installition
-
-volumes:
-  war:
