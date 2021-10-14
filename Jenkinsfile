@@ -32,9 +32,8 @@ pipeline {
         }
         
         stage ('run webapp') {
-            agent any
             steps {
-                sh 'docker run -p 8084:8080 178.154.200.210:8082/box:run$version'
+                sh 'docker run -d -p 8084:8080 178.154.200.210:8082/box:run$version'
             }
         }
     }
