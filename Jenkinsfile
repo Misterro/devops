@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image '178.154.202.215:8082/box:$version'
+            image '178.154.200.210:8082/box:$version'
             args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
         }
     }
@@ -27,14 +27,14 @@ pipeline {
         
         stage ('push run images') {
             steps {
-                sh 'docker tag box:run$version 178.154.202.215:8082/box:run$version && docker push 178.154.202.215:8082/box:run$version'
+                sh 'docker tag box:run$version 178.154.200.210:8082/box:run$version && docker push 178.154.200.210:8082/box:run$version'
             }
         }
         
         stage ('run webapp') {
             agent any
             steps {
-                sh 'cat password | docker login 178.154.202.215:8082 --username admin --password-stdin && docker run -p 8084:8080 178.154.202.215:8082/box:run$version'
+                sh 'docker run -p 8084:8080 178.154.200.210:8082/box:run$version'
             }
         }
     }
