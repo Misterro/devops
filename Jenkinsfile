@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh 'ssh jenkins@178.154.200.210'
                 git 'https://github.com/Misterro/devops.git'
-                sh 'docker-compose up -d'
+                sh 'ls'
             }
         }
     }
