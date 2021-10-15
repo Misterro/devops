@@ -32,8 +32,12 @@ pipeline {
         }
         
         stage ('run webapp') {
+            agent {
+                label 'production'
+            }
             steps {
-                sh 'docker run -d -p 8084:8080 178.154.200.210:8082/box:run$version'
+                git 'https://github.com/Misterro/devops.git'
+                sh 'docker-compose up -d'
             }
         }
     }

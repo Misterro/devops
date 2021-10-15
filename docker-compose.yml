@@ -1,6 +1,6 @@
 version: "3"
 services:
   run:
-    build: run
+    build: 178.154.200.210:8082/box:1
     ports:
       - 8084:8080
