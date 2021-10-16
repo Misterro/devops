@@ -33,7 +33,7 @@ pipeline {
         
         stage ('run webapp') {
             agent {
-                label 'master'
+                label 'production'
             }
             steps {
                 sh 'ls'
