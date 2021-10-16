@@ -36,11 +36,7 @@ pipeline {
                 label 'master'
             }
             steps {
-                sshagent(credentials : ['jenkins']) {
-                            sh 'ssh -o StrictHostKeyChecking=no user@hostname.com uptime'
-                            sh 'ssh -v jenkins@h62.84.116.78:8082'
-                            sh 'ls'
-                        }
+                sh 'ls'
             }
         }
     }
