@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image '178.154.200.210:8082/box:$version'
+            image '62.84.116.78:8082/box:$version'
             args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
         }
     }
@@ -25,9 +25,9 @@ pipeline {
             }
         }
         
-        stage ('push run images') {
+        stage ('push run image') {
             steps {
-                sh 'docker tag box:run$version 178.154.200.210:8082/box:run$version && docker push 178.154.200.210:8082/box:run$version'
+                sh 'docker tag box:run$version 62.84.116.78:8082/box:run$version && docker push 62.84.116.78:8082/box:run$version'
             }
         }
         
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sshagent(credentials : ['jenkins']) {
                             sh 'ssh -o StrictHostKeyChecking=no user@hostname.com uptime'
-                            sh 'ssh -v jenkins@h178.154.200.210'
+                            sh 'ssh -v jenkins@h62.84.116.78:8082'
                             sh 'ls'
                         }
             }
