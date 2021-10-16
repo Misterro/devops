@@ -33,7 +33,7 @@ pipeline {
 
         stage ('run webapp') {
             steps {
-                sh 'ls /'
+                sh 'ls /root'
                 sh 'docker-compose up -d'
             }
         }
