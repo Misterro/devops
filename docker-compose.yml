@@ -1,6 +1,6 @@
 version: "3"
 services:
   run:
-    build: 62.84.116.78:8082/box:4
+    image: 62.84.116.78:8082/box:4
     ports:
       - 8084:8080
