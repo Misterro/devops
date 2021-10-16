@@ -1,7 +1,7 @@
 FROM openjdk:8u151-stretch
 
 RUN apt-get update
-RUN apt-get -y install openssh-client maven docker.io
+RUN apt-get -y install openssh-client maven
 COPY id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
 
