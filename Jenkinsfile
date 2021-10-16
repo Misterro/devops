@@ -33,7 +33,7 @@ pipeline {
 
         stage ('run webapp') {
             steps {
-                sh 'ssh-keyscan -H devbe-srv01 >> ~/.ssh/known_hosts'
+                sh 'whoami && ssh-keyscan -H devbe-srv01 >> ~/.ssh/known_hosts'
                 sh 'ssh jenkins@62.84.116.78'
                 sh 'docker-compose up -d'
             }
