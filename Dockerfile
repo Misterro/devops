@@ -1,4 +1,4 @@
-FROM openjdk:8u151-stretch
+FROM ubuntu:20.04
 
 RUN apt-get update
 RUN apt-get -y install openssh-client maven
@@ -8,7 +8,6 @@ RUN chmod 600 /root/.ssh/id_rsa
 # Confugure ssh client
 COPY id_rsa /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
-RUN touch /root/.ssh/known_hosts
 
 # Install docker 18.03
 RUN apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
