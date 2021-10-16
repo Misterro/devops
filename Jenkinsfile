@@ -35,6 +35,7 @@ pipeline {
             agent {
                 node {
                     label 'production'
+                    customWorkspace '/home/jenkins'
                 }
             }
             steps {
