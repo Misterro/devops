@@ -1,5 +1,5 @@
 FROM docker:latest
 
-RUN apk update && apk add maven
-RUN addgroup -S docker && adduser -S appuser -G docker
-USER appuser
+RUN apk update && apk add maven openssh-client
+COPY id_rsa /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
