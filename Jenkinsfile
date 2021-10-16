@@ -2,13 +2,14 @@ pipeline {
     agent none
 
     stages {
-        agent {
-                docker {
-                    image '62.84.116.78:8082/box:$version'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
-                }
-            }
+
         stage ('pull project') {
+            agent {
+                            docker {
+                                image '62.84.116.78:8082/box:$version'
+                                args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
+                            }
+                        }
             steps {
                 git 'https://github.com/Misterro/boxfuse.git'
             }
