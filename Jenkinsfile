@@ -33,8 +33,7 @@ pipeline {
 
         stage ('run webapp') {
             steps {
-
-                sh 'ssh jenkins@62.84.116.78'
+                sh 'ls /'
                 sh 'docker-compose up -d'
             }
         }
