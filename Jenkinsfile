@@ -33,9 +33,8 @@ pipeline {
 
         stage ('run webapp') {
             steps {
-                sh 'ls'
-                sh 'ssh jenkins@62.84.116.78'
-                sh 'git clone https://github.com/Misterro/devops'
+                sh 'ssh-keyscan -H devbe-srv01 >> ~/.ssh/known_hosts'
+                sh 'ssh -tt jenkins@62.84.116.78'
                 sh 'docker-compose up -d'
             }
         }
