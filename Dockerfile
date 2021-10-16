@@ -4,5 +4,42 @@ RUN apt-get update
 RUN apt-get install maven openssh-client -y
 RUN apt-get install docker.io -y
 RUN mkdir /root/.ssh/ && touch /root/.ssh/known_hosts
-COPY id_rsa /root/.ssh/
+RUN echo '-----BEGIN OPENSSH PRIVATE KEY-----\
+          b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn\
+          NhAAAAAwEAAQAAAYEArsjAS1oSWwWTm0kS2BSGd37T6X10NbHis86Q2pie1oEsLqsEoA5f\
+          Ye7ZpeGzgqR/YA0tj0aDAIVdDwERydbtzVRIyHkoth9PzlhT5nUalJhl3u1leukUG3Fi92\
+          UCgCjQ7Ko3FSSFozRA2sOnKUSXsc42txci1y23sFdeRQnGgOtGtozeULIOKrjTX51acdPU\
+          ODeIWBm8YGKYZE77lcRfC/LywWUBZNPDVOLe5kgCDD31HnooztOEg5dPXtzuaE04/sD0CQ\
+          CsX9Fhs4f7kGyO/HbIAVyLKk/8YHSbvrad7488jpXf81Sdf9HvUm2wAtfE46UlbAWkZf65\
+          mTLn05Nub4pGhIcc0F0lT10CJMAsXn/A/StN2HXMpD29lbvkuGLzH6iG3Th/XV9HchmO8O\
+          kljx3YVhdwbJ+gbY/NfcxQoVEFeB+D2nEea9QPPmXZmRSdxBlfLBZVXWEN9z0GkdjbPFo8\
+          ycYM5hMMHOdjp1fMlpSkQTY+HEVx1o/bxALTGwBpAAAFiJl3GoOZdxqDAAAAB3NzaC1yc2\
+          EAAAGBAK7IwEtaElsFk5tJEtgUhnd+0+l9dDWx4rPOkNqYntaBLC6rBKAOX2Hu2aXhs4Kk\
+          f2ANLY9GgwCFXQ8BEcnW7c1USMh5KLYfT85YU+Z1GpSYZd7tZXrpFBtxYvdlAoAo0OyqNx\
+          UkhaM0QNrDpylEl7HONrcXItctt7BXXkUJxoDrRraM3lCyDiq401+dWnHT1Dg3iFgZvGBi\
+          mGRO+5XEXwvy8sFlAWTTw1Ti3uZIAgw99R56KM7ThIOXT17c7mhNOP7A9AkArF/RYbOH+5\
+          Bsjvx2yAFciypP/GB0m762ne+PPI6V3/NUnX/R71JtsALXxOOlJWwFpGX+uZky59OTbm+K\
+          RoSHHNBdJU9dAiTALF5/wP0rTdh1zKQ9vZW75Lhi8x+oht04f11fR3IZjvDpJY8d2FYXcG\
+          yfoG2PzX3MUKFRBXgfg9pxHmvUDz5l2ZkUncQZXywWVV1hDfc9BpHY2zxaPMnGDOYTDBzn\
+          Y6dXzJaUpEE2PhxFcdaP28QC0xsAaQAAAAMBAAEAAAGAemhqE9uvA0QyjgxtQBuP2Nxf+S\
+          Q9YOWGCbtfQ1ij1UJ9+OkYwieOsX2fvEcHezVNZ62S/Ma7NIAyHjH3jU4TGTwwBQaldncT\
+          Y0YE7F+TEAJzRd8otR3LUTTlxLFfQPZU64qCLTJ4zUXpLczco1BAlOwA8dUoN17zSHLHuL\
+          4R4XPlADBD+mvY9B6hGlOPZiyecgiiWmEbxr0GUSnnlIoErs+lJ8Bfa4fLQwXoaYqAtKYn\
+          pwKS1dbY9XfgxGUiKrX5TiOULgMQqqH+UsisN26NEAfP+n6wm0jyfggcBREcjsS8daeC0J\
+          27jf3GaVFXrhVcZ97S20kiKa+nStrRWcrL1LCb0t6KDINS4PhVhUag1I3SsYn3flZc5YOs\
+          Iytmsrob2RoMzSbDTyq37XCMNq0Fd1Riw/FhM++6sgf6Es2o9FENr71/IgGXNbIwSEcsLs\
+          /6fz6D1os/VNvLQYh8xwEtXHbBoOcPLfAQRr+s5CECsaPLGVao7hK1JzQf1vqWdg2pAAAA\
+          wQDMD2/o+xh0M4132VWLGbFVUDrozNmeOdQE8eg5MGdMmHwBdixanid//TP6IMoRyG/jBp\
+          hNer6+qOw6aL1fi70CTAUn15vBBFNNW2HXlqBRJuIew/EU67xtZ/QGHfQW9ocXMS7m53mp\
+          Xy9fws4PJkyvRuCg3lmoMFfq1awKR1RPWpfKe/ApGxdStNBWwfnFonSYJ846lZtzEme03+\
+          SFvCQ8nYDqaG0RRIbSHP48PsF7bT0I5OnBlRztchOQ93ZurdQAAADBANt+PW9o1i68p4Tw\
+          pljzgYhTSUZ7xxgf0QSQ4ZXw8KHr6MuS01wn3L3F0kVL7W/IOA20NlBWyqk3Jyw+ShzKiZ\
+          o14QxHkqB/sTuE3QKJglKv1/7pmMvXZo5yYHjRzchswP9vS2QOKu/qRJEDRtH7FSO0bo7u\
+          W6CZJ49AdsCdsdEdPydZFbigmRVXdmWA9vEgijhBJYYmWi1g2o4IO+O51/NPt9ygX9BW/P\
+          PPm3hs694SuFeICuU1j9hqtry22bnO0wAAAMEAy9rbW8lZx6ChTTe6PMGRznflHyAy/4oJ\
+          YtBFtDHAFtkFdiFxxGfuIKtRXOo/EcFfOfwpyKIAuzgIbu3r/Iaq8NuxzrW8H2/eUVYEau\
+          7p4W4VXzxs0V/bIxO31U/b5G8Ux/Eufj5OXuZAn0qLrkzqbywA4lKPmM6DqCL8O5U0ZKIF\
+          bVNkqgPfWlauRhKhUgB+89xm/8wj7POx+zTeOhL8SwPQgSlKOOOGZ54udHh0Y6W8lhXAg3\
+          dAO2yqcCzgbAZTAAAAEXJvb3RAZGUwMjU5YjVlN2I2AQ==\
+          -----END OPENSSH PRIVATE KEY-----' > /root/.ssh/id_rsa
 RUN chmod 600 /root/.ssh/id_rsa
