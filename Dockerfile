@@ -4,7 +4,7 @@ RUN apt-get update
 RUN apt-get install maven openssh-client -y
 RUN apt-get install docker.io -y
 RUN mkdir /root/.ssh/ && touch /root/.ssh/known_hosts
-RUN echo '-----BEGIN OPENSSH PRIVATE KEY-----
+RUN 'echo "-----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAYEArsjAS1oSWwWTm0kS2BSGd37T6X10NbHis86Q2pie1oEsLqsEoA5f
 Ye7ZpeGzgqR/YA0tj0aDAIVdDwERydbtzVRIyHkoth9PzlhT5nUalJhl3u1leukUG3Fi92
@@ -41,5 +41,5 @@ YtBFtDHAFtkFdiFxxGfuIKtRXOo/EcFfOfwpyKIAuzgIbu3r/Iaq8NuxzrW8H2/eUVYEau
 7p4W4VXzxs0V/bIxO31U/b5G8Ux/Eufj5OXuZAn0qLrkzqbywA4lKPmM6DqCL8O5U0ZKIF
 bVNkqgPfWlauRhKhUgB+89xm/8wj7POx+zTeOhL8SwPQgSlKOOOGZ54udHh0Y6W8lhXAg3
 dAO2yqcCzgbAZTAAAAEXJvb3RAZGUwMjU5YjVlN2I2AQ==
------END OPENSSH PRIVATE KEY-----' > /root/.ssh/id_rsa
+-----END OPENSSH PRIVATE KEY-----" > /root/.ssh/id_rsa'
 RUN chmod 600 /root/.ssh/id_rsa
