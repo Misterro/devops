@@ -35,10 +35,11 @@ pipeline {
             steps {
                 sh 'ls /root/.ssh'
                 sh 'ssh-keyscan -H 62.84.116.78 >> ~/.ssh/known_hosts'
-                sh 'ssh jenkins@62.84.116.78'
-                git 'https://github.com/Misterro/devops'
-                sh 'ls'
-                sh 'docker-compose up -d'
+                sh '''ssh jenkins@62.84.116.78 << EOF
+                      	git pull https://github.com/Misterro/devops
+                      	cd devops
+                      	docker-compose up -d
+                      EOF'''
             }
         }
     }
