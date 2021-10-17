@@ -37,9 +37,8 @@ pipeline {
                 sh 'ssh-keyscan -H 62.84.116.78 >> ~/.ssh/known_hosts'
                 sh '''ssh jenkins@62.84.116.78 << EOF
                       	git pull https://github.com/Misterro/devops
-                      	cat password | docker login -u admin --password-stdin 62.84.116.78:8082
-                      	docker-compose up -d
-                      EOF'''
+                      	cat password | docker login -u admin --password-stdin http://62.84.116.78:8082/
+                      	docker-compose up -d'''
             }
         }
     }
