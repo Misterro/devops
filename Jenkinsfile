@@ -36,9 +36,9 @@ pipeline {
                 sh 'ls /root/.ssh'
                 sh 'ssh-keyscan -H 62.84.116.78 >> ~/.ssh/known_hosts'
                 sh 'ssh jenkins@62.84.116.78'
-                git branch: 'main', url: 'https://github.com/Misterro/devops'
+                git 'https://github.com/Misterro/devops'
                 sh 'docker-compose up -d'
-
+                sh 'ls'
             }
         }
     }
