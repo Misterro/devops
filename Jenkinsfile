@@ -33,7 +33,6 @@ pipeline {
 
         stage ('run webapp') {
             steps {
-                sh 'ls /root/.ssh'
                 sh 'ssh-keyscan -H 62.84.116.78 >> ~/.ssh/known_hosts'
                 sh '''ssh jenkins@62.84.116.78 << EOF
                       	git pull https://github.com/Misterro/devops
